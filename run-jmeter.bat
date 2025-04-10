@@ -1,12 +1,11 @@
 @echo off
 
-REM Set JMeter bin path
-set JMETER_PATH=C:\Users\VINIT\Downloads\apache-jmeter-5.6.3\apache-jmeter-5.6.3\bin
+REM Set JMeter bin path to a SYSTEM-accessible location
+set JMETER_PATH=C:\apache-jmeter-5.6.3\bin
 
-REM Get full path to JMX file
+REM Get full path to JMX file in Jenkins workspace
 set TEST_PATH=%cd%\ThreadGroup.jmx
 
-REM Echo path for debugging
 echo Running test from: %TEST_PATH%
 
 REM Run the JMeter test
