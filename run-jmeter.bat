@@ -1,3 +1,7 @@
+echo Script is running from: %cd%
+dir
+
+
 @echo off
 
 REM Set JMeter bin path (no quotes inside variable)
