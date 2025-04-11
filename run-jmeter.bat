@@ -1,17 +1,18 @@
 @echo off
 
-REM JMeter path
+REM Set JMeter path
 set JMETER_PATH=C:\apache-jmeter-5.6.3\bin
 set TEST_PATH=%cd%\ThreadGroup.jmx
+set REPORT_PATH=%cd%\report
 
-REM Debug: confirm file exists
-echo Looking for JMX file at: %TEST_PATH%
-
-if not exist "%TEST_PATH%" (
-    echo ERROR: File not found!
-    dir
-    exit /b 1
+REM Clean report folder if it exists
+if exist "%REPORT_PATH%" (
+    echo Deleting existing report directory...
+    rmdir /s /q "%REPORT_PATH%"
 )
 
-REM Run test
+REM Run JMeter test
+echo Running JMeter test...
 "%JMETER_PATH%\jmeter.bat" -n -t "%TEST_PATH%" -l results.jtl -e -o report
+
+echo JMeter test completed.
